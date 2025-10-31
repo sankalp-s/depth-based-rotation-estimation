@@ -35,9 +35,6 @@ Compute Mean Normal (Rotation Axis)
 Save Results (CSV + TXT)
 ```
 
-📊 _A visual diagram of this process can be found in:_  
-[`assets/clean_depth_processing_flowchart.png`](./assets/clean_depth_processing_flowchart.png)
-
 ---
 
 ## 🛠️ Features
@@ -58,15 +55,13 @@ Save Results (CSV + TXT)
 depth-based-rotation-estimation/
 │
 ├── estimate_box_rotation.py          # Main pipeline script
-├── create_depth_animation_with_inliers.py  # Visualization and GIF creation
+├── additional-scripts  # Visualization scripts
 ├── requirements.txt                  # Dependencies
 ├── metadata.yaml                     # ROS2 metadata
 ├── depth.db3                         # Example input data (ROS bag)
 ├── results.csv                       # Per-frame analysis output
 ├── rotation_axis.txt                 # Estimated rotation axis vector
 ├── frames/                           # (Optional) Depth frame visualizations
-├── assets/
-│   └── clean_depth_processing_flowchart.png  # Pipeline flow diagram
 ├── LICENSE
 └── README.md
 ```
@@ -121,7 +116,6 @@ Done. Outputs saved to ./out_dir
 |------|--------------|
 | `results.csv` | Per-frame results including plane normal, angle, and visible area |
 | `rotation_axis.txt` | Final estimated rotation axis (unit vector) |
-| `depth_animation_with_inliers.gif` | Optional visualization (if generated) |
 
 **Example (results.csv):**
 | frame | nx | ny | nz | angle_deg | visible_area_m2 |
@@ -146,44 +140,6 @@ Repeatedly samples 3 random points, computes the plane normal via cross product,
 
 ### 🔹 Rotation Axis
 The **mean of all detected plane normals**, normalized to a unit vector, represents the estimated **rotation axis** of the object.
-
----
-
-## 🖼️ Visualization (Optional)
-
-To generate animations or GIFs of the depth frames:
-```bash
-python create_depth_animation_with_inliers.py ./depth.db3 ./out_dir
-```
-
-Outputs:
-- `depth_animation_with_inliers.gif`
-- `depth_animation_with_inliers.mp4`
-
----
-
-## 🧾 License
-
-This project is licensed under the **MIT License** — see the [LICENSE](./LICENSE) file for details.
-
----
-
-## 👤 Author
-
-**Sankalp Arora**  
-Perception Engineer — 10xConstruction Apprentice Assignment  
-📧 sankalp.arora@example.com  
-🌐 [LinkedIn](https://www.linkedin.com/in/sankalp-arora/)
-
----
-
-## 💡 Acknowledgements
-
-- ROS2 bag format (`.db3`) handling inspired by `rosbag2_py` message serialization.  
-- RANSAC implementation adapted from standard 3D geometry methods.  
-- Visualization tools built using **Matplotlib** and **ImageIO**.
-
----
 
 ## 🧠 Future Enhancements
 - Integrate real camera intrinsics via `camera_info` topic parsing.  
