@@ -55,7 +55,7 @@ Save Results (CSV + TXT)
 depth-based-rotation-estimation/
 │
 ├── estimate_box_rotation.py          # Main pipeline script
-├── additional-scripts  # Visualization scripts
+├── additional-scripts                # Visualization scripts
 ├── requirements.txt                  # Dependencies
 ├── metadata.yaml                     # ROS2 metadata
 ├── depth.db3                         # Example input data (ROS bag)
