@@ -2,8 +2,6 @@
 
 A perception engineering pipeline that processes **depth images** stored in a ROS2 SQLite bag (`depth.db3`), converts them into 3D point clouds, detects dominant planar surfaces using **RANSAC**, and estimates the **object’s rotation axis** across multiple frames.
 
-This project was developed as part of the **Perception Engineer (Apprentice)** assignment at **10xConstruction**.
-
 ---
 
 ## 🧠 Overview
